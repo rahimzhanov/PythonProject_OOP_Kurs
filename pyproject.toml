@@ -1,0 +1,20 @@
+[project]
+name = "pythonproject-oop-kurs"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Rakhimzhanov Aman",email = "amanrahim2@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pytest (>=8.4.2,<9.0.0)",
+    "flake8 (>=7.3.0,<8.0.0)",
+    "isort (>=7.0.0,<8.0.0)",
+    "black (>=25.9.0,<26.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
