@@ -1,8 +1,8 @@
 from typing import Any, Dict
 
 import requests
-from requests import Response
 from src.abstract_api import AbstractApi
+from  vacancy import Vacancy
 
 
 class HeadHunterApi(AbstractApi):
@@ -18,24 +18,29 @@ class HeadHunterApi(AbstractApi):
         return response.json()
 
 
-    def get_vacancies(self, keyword: str) -> list[dict]:
+    def fetch_vacancies(self, keyword: str) -> list[dict]:
         response = self._connect_to_api(keyword)
         return response['items']
 
 
-    @staticmethod
-    def format_vacancies(all_vacancies):
+
+    def format_vacancies(self, all_vacancies):
         vacancies = []
         for vacancy in all_vacancies:
-            vacancies.append({'name': vacancy['name'],
-                              'salary': vacancy['salary'],
-                              'description': vacancy['snippet'].get("responsibility"),
-                              'url': vacancy["alternate_url"]})
+            vac = Vacancy(
+                name = vacancy['name'],
+                salary = vacancy['salary'],
+                description = vacancy['snippet'].get("responsibility"),
+                url = vacancy["alternate_url"
+                ])
+            vacancies.append(vac)
         return vacancies
 
 
 if __name__ == '__main__':
 
     hh = HeadHunterApi()
-    vacs = hh.get_vacancies('python')
-    print(hh.format_vacancies(vacs))
+    vacs = hh.fetch_vacancies('python')
+    formatted_vacs = hh.format_vacancies(vacs)
+    for vac in formatted_vacs:
+        print(vac)

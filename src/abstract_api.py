@@ -8,7 +8,7 @@ class AbstractApi(ABC):
 
 
     @abstractmethod
-    def get_vacancies(self, keyword: str):
+    def fetch_vacancies(self, keyword: str):
         pass
 
     @abstractmethod

@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
 
+from src.vacancy import Vacancy
+
 
 class AbstractSaver(ABC):
 
@@ -8,13 +10,9 @@ class AbstractSaver(ABC):
         pass
 
     @abstractmethod
-    def get_vacancies(self, criteria: dict = None) -> list['Vacancy']:
+    def get_vacancies(self, filters: dict = None) -> list['Vacancy']:
         pass
 
     @abstractmethod
     def delete_vacancy(self, vacancy: 'Vacancy') -> None:
-        pass
-
-    @abstractmethod
-    def add_vacancies(self, vacancies: list["Vacancy"]) -> None:
         pass

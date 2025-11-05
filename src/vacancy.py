@@ -10,7 +10,7 @@ class Vacancy:
     def  __validate_salary(self, salary: dict):
         if salary:
             self.salary_from = salary['from'] if salary['from'] else 0
-            self.salary_to = salary['to']
+            self.salary_to = salary['to'] if salary['to'] else 0
         else:
             self.salary_to = 0
             self.salary_from = 0
