@@ -1,5 +1,5 @@
 import json
-
+from utils import sort_vacancies
 from typing import List, Dict, Any
 
 from abstract_saver import AbstractSaver
@@ -144,7 +144,13 @@ if __name__ == '__main__':
         description="Разработка на Python и Django"
     )
     saver.add_vacancy(test_vacancy)  # 👈 Это создаст файл
-
+    test_vacancy2 = Vacancy(
+        name="Dev",
+        salary={"from": 200000, "to": 250000},
+        url="https://hh.ru/vacancy/133",
+        description="Разработка на Python "
+    )
+    saver.add_vacancy(test_vacancy2)
     # 3. Теперь читаем
     print("\nТест 3 - Чтение после добавления:")
     result = saver.get_vacancies()
@@ -152,6 +158,7 @@ if __name__ == '__main__':
     for vac in result:
         print(vac)
 
+    print(sort_vacancies(result))
     # 4. Тест фильтров
     print("\nТест 4 - Фильтры:")
     filtered = saver.get_vacancies({"min_salary": 50000})
