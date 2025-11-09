@@ -2,7 +2,8 @@ from typing import Any, Dict
 
 import requests
 from src.abstract_api import AbstractApi
-from  vacancy import Vacancy
+
+from src.vacancy import Vacancy
 
 
 class HeadHunterApi(AbstractApi):

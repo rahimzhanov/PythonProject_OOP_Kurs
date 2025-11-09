@@ -1,10 +1,8 @@
 import json
-from utils import sort_vacancies
-from typing import List, Dict, Any
-
-from abstract_saver import AbstractSaver
+from src.utils import sort_vacancies
+from src.abstract_saver import AbstractSaver
 from src.vacancy import Vacancy
-
+from src.utils import sort_vacancies
 
 class JsonSaver(AbstractSaver):
 
