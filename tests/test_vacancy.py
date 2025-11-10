@@ -34,8 +34,8 @@ class TestVacancy:
 
     def test_vacancy_comparison(self):
         """Тест сравнения вакансий по зарплате"""
-        vacancy1 = Vacancy("Developer1", {"from": 100000}, "url1", "desc1")
-        vacancy2 = Vacancy("Developer2", {"from": 150000}, "url2", "desc2")
+        vacancy1 = Vacancy("Developer1", {"from": 100000, "to": 150000}, "url1", "desc1")
+        vacancy2 = Vacancy("Developer2", {"from": 150000, "to": 200000}, "url2", "desc2")
 
         assert vacancy2 > vacancy1
         assert vacancy1 < vacancy2

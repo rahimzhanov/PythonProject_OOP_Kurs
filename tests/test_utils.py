@@ -8,9 +8,9 @@ class TestUtils:
 
     def test_sort_vacancies(self):
         """Тест сортировки вакансий по зарплате"""
-        vacancy1 = Vacancy("Low", {"from": 50000}, "url1", "desc1")
-        vacancy2 = Vacancy("High", {"from": 150000}, "url2", "desc2")
-        vacancy3 = Vacancy("Medium", {"from": 100000}, "url3", "desc3")
+        vacancy1 = Vacancy("Low", {"from": 50000, "to": 60000}, "url1", "desc1")
+        vacancy2 = Vacancy("High", {"from": 150000, "to": 170000}, "url2", "desc2")
+        vacancy3 = Vacancy("Medium", {"from": 100000, "to": 140000}, "url3", "desc3")
 
         vacancies = [vacancy1, vacancy2, vacancy3]
         sorted_list = sort_vacancies(vacancies)
@@ -22,9 +22,9 @@ class TestUtils:
     def test_get_top_vacancies(self):
         """Тест получения топ N вакансий"""
         vacancies = [
-            Vacancy("V1", {"from": 100000}, "url1", "desc1"),
-            Vacancy("V2", {"from": 200000}, "url2", "desc2"),
-            Vacancy("V3", {"from": 300000}, "url3", "desc3")
+            Vacancy("V1", {"from": 100000, "to": 190000}, "url1", "desc1"),
+            Vacancy("V2", {"from": 200000, "to": 290000}, "url2", "desc2"),
+            Vacancy("V3", {"from": 300000, "to": 350000}, "url3", "desc3")
         ]
 
         top_2 = get_top_vacancies(2, vacancies)
@@ -35,8 +35,8 @@ class TestUtils:
     def test_get_top_more_than_exists(self):
         """Тест получения топа когда N больше количества вакансий"""
         vacancies = [
-            Vacancy("V1", {"from": 100000}, "url1", "desc1"),
-            Vacancy("V2", {"from": 200000}, "url2", "desc2")
+            Vacancy("V1", {"from": 100000, "to": 190000}, "url1", "desc1"),
+            Vacancy("V2", {"from": 200000, "to": 290000}, "url2", "desc2")
         ]
 
         top_5 = get_top_vacancies(5, vacancies)

@@ -35,8 +35,8 @@ class TestJsonSaver:
         test_file = tmp_path / "test_vacancies.json"
         saver = JsonSaver(str(test_file))
 
-        vacancy1 = Vacancy("Low", {"from": 50000}, "url1", "desc1")
-        vacancy2 = Vacancy("High", {"from": 150000}, "url2", "desc2")
+        vacancy1 = Vacancy("Low", {"from": 90000, "to": 90000}, "url1", "desc1")
+        vacancy2 = Vacancy("High", {"from": 150000, "to": 200000}, "url2", "desc2")
 
         saver.add_vacancy(vacancy1)
         saver.add_vacancy(vacancy2)
@@ -52,7 +52,7 @@ class TestJsonSaver:
         test_file = tmp_path / "test_vacancies.json"
         saver = JsonSaver(str(test_file))
 
-        vacancy = Vacancy("Python Dev", {"from": 100000}, "https://test.com", "desc")
+        vacancy = Vacancy("Python Dev", {"from": 100000, "to": 140000}, "https://test.com", "desc")
         saver.add_vacancy(vacancy)
 
         # Удаляем вакансию
