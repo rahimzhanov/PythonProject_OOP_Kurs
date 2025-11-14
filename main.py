@@ -39,7 +39,7 @@ def user_interaction():
     # 3. Получаем вакансии с HH.ru
     try:
         raw_vacancies = hh_api.fetch_vacancies(search_query)
-        vacancies_list = hh_api.format_vacancies(raw_vacancies)
+        vacancies_list = HeadHunterApi.format_vacancies(raw_vacancies)
 
         if not vacancies_list:
             print("❌ По вашему запросу вакансий не найдено")

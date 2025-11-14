@@ -1,14 +1,13 @@
 import json
-from src.utils import sort_vacancies
 from src.abstract_saver import AbstractSaver
 from src.vacancy import Vacancy
 from src.utils import sort_vacancies
+
 
 class JsonSaver(AbstractSaver):
 
     def __init__(self, filename: str = "vacancies.json"):
         self.__filename = filename
-
 
     @staticmethod
     def _apply_filters(vacancies: list[Vacancy], filters: dict) -> list[Vacancy]:
@@ -28,7 +27,6 @@ class JsonSaver(AbstractSaver):
 
             filtered.append(vacancy)
         return filtered
-
 
     def get_vacancies(self, filters: dict = None) -> list[Vacancy]:
         """Получение данных из файла"""
@@ -51,8 +49,8 @@ class JsonSaver(AbstractSaver):
             return vacancies
 
         except FileNotFoundError:
-                print(f"Файл {self.__filename} не найден")
-                return []
+            print(f"Файл {self.__filename} не найден")
+            return []
 
         except json.JSONDecodeError:
             print(f"Ошибка декодирования JSON в файле {self.__filename}")
@@ -61,7 +59,6 @@ class JsonSaver(AbstractSaver):
         except Exception as e:
             print(f"Произошла ошибка: {e}")
             return []
-
 
     def delete_vacancy(self, vacancy: Vacancy) -> None:
         """Удаляет вакансию из JSON файла по ссылке"""
@@ -88,8 +85,6 @@ class JsonSaver(AbstractSaver):
             print(f"Файл {self.__filename} не найден")
         except Exception as e:
             print(f"Ошибка при удалении вакансии: {e}")
-
-
 
     def add_vacancy(self, vacancy: Vacancy) -> None:
         """Добавление списка"""
@@ -123,6 +118,7 @@ class JsonSaver(AbstractSaver):
 
         except Exception as e:
             print(f"Ошибка при добавлении вакансии: {e}")
+
 
 if __name__ == '__main__':
     # Сначала ПИШЕМ данные в файл, потом читаем

@@ -1,6 +1,3 @@
-import pytest
-import os
-import json
 from src.vacancy import Vacancy
 from src.json_saver import JsonSaver
 

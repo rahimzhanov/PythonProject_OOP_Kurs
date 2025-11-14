@@ -1,4 +1,3 @@
-import pytest
 from src.hh_api import HeadHunterApi
 
 

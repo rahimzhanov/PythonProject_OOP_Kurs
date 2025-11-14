@@ -1,4 +1,5 @@
 from typing import List
+from src.vacancy import Vacancy
 
 
 def sort_vacancies(vacancies: List['Vacancy']) -> List['Vacancy']:
@@ -9,6 +10,7 @@ def sort_vacancies(vacancies: List['Vacancy']) -> List['Vacancy']:
     на основе поля salary_from класса Vacancy.
     """
     return sorted(vacancies, reverse=True)
+
 
 def get_top_vacancies(n: int, vacancies: List['Vacancy']) -> List['Vacancy']:
     """
@@ -53,4 +55,3 @@ def print_vacancies(vacancies: List['Vacancy']) -> None:
 
     # Итоговая информация
     print(f"\n📊 Всего найдено вакансий: {len(vacancies)}")
-

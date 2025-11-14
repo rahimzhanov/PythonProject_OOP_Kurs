@@ -1,6 +1,5 @@
-import pytest
 from src.vacancy import Vacancy
-from src.utils import sort_vacancies, get_top_vacancies, print_vacancies
+from src.utils import sort_vacancies, get_top_vacancies
 
 
 class TestUtils:
